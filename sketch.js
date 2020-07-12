@@ -20,44 +20,44 @@ function setup() {
   world = engine.world;
 
   //stands
-  stand1 = new Ground(790,600,300,20,{isStatic:true,friction:3.0});
-  stand2 = new Ground(1290,500,300,20,{isStatic:true,friction:3.0});
+  stand1 = new Ground(790,605,300,20,{isStatic:true,friction:3.0});
+  stand2 = new Ground(1290,505,300,20,{isStatic:true,friction:3.0});
   ground = new Ground(width/2,height,width,20);
 
 
   //pyramid1
     //bottom
-  block1 = new Block(730,235,30,40,'purple');
-  block2 = new Block(760,235,30,40,'darkcyan');
-  block3 = new Block(790,235,30,40,'gold');
-  block4 = new Block(820,235,30,40,'purple');
-  block5 = new Block(850,235,30,40,'darkcyan');
+  block1 = new Block(730,590,30,40,'purple');
+  block2 = new Block(760,590,30,40,'darkcyan');
+  block3 = new Block(790,590,30,40,'gold');
+  block4 = new Block(820,590,30,40,'purple');
+  block5 = new Block(850,590,30,40,'darkcyan');
     //middle
-  block6 = new Block(760,195,30,40,'indianred');
-  block7 = new Block(790,195,30,40,'purple');
-  block8 = new Block(820,195,30,40,'gold');
+  block6 = new Block(760,550,30,40,'indianred');
+  block7 = new Block(790,550,30,40,'purple');
+  block8 = new Block(820,550,30,40,'gold');
     //top
-  block9 = new Block(790,155,30,40,'indianred');
+  block9 = new Block(790,510,30,40,'indianred');
 
   //pyramid2
     //bottom
-  block10 = new Block(1230,135,30,40,'gold');
-  block11 = new Block(1260,135,30,40,'darkcyan');
-  block12 = new Block(1290,135,30,40,'gold');
-  block13 = new Block(1320,135,30,40,'lightseagreen');
-  block14 = new Block(1350,135,30,40,'darkcyan');
+  block10 = new Block(1230,490,30,40,'gold');
+  block11 = new Block(1260,490,30,40,'darkcyan');
+  block12 = new Block(1290,490,30,40,'gold');
+  block13 = new Block(1320,490,30,40,'lightseagreen');
+  block14 = new Block(1350,490,30,40,'darkcyan');
     //middle
-  block15 = new Block(1260,95,30,40,'darkslateblue');
-  block16 = new Block(1290,95,30,40,'indianred');
-  block17 = new Block(1320,95,30,40,'darkslateblue');
+  block15 = new Block(1260,450,30,40,'darkslateblue');
+  block16 = new Block(1290,450,30,40,'indianred');
+  block17 = new Block(1320,450,30,40,'darkslateblue');
     //top
-  block18 = new Block(1290,55,30,40,'darkcyan');
+  block18 = new Block(1290,410,30,40,'darkcyan');
 
   //polygon
   polygon = new paper(50,200,20);
 
   //launcher
-  launcher = new Launcher(polygon.body,{x:250,y:400});
+  launcher = new Launcher(polygon.body,{x:350,y:450});
   
 
 
@@ -122,5 +122,14 @@ function mouseReleased() {
   
   launcher.fly();
   gameState = 'launched';
+
+}
+
+function keyPressed(){
+
+  if (keyCode == 32) {
+    launcher.attach(polygon.body);
+    gameState = 'onSling'; 
+  }
 
 }
