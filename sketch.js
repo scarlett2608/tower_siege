@@ -57,7 +57,7 @@ function setup() {
   polygon = new paper(50,200,20);
 
   //launcher
-  launcher = new Launcher(polygon.body,{x:350,y:450});
+  launcher = new Launcher(polygon.body,{x:300,y:500});
   
 
 
