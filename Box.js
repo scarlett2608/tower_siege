@@ -14,6 +14,14 @@ class Block{
         World.add(world,this.body);
      
     }
+
+    score(){
+        if(this.Visibility < 0 && this.Visibility > -1005){
+            score++
+        }
+
+    }
+
     display(){
         
         

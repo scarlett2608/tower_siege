@@ -12,6 +12,8 @@ var block1,block2,block3,block4,block5,block6,block7,block8,block9,block10,block
 var block13,block14,block15,block16,block17,block18;
 var launcher,polygon;
 var gameState = 'onSling';
+var score = 0;
+var bg = 'lightcyan';
 
 function setup() {
   createCanvas(1600,800);
@@ -78,9 +80,36 @@ function setup() {
 
 
 function draw() {
-  background('darkslategray');  
+  
+  getBackgroundImg();
+  
+  background(bg);  
   
   Engine.update(engine);
+  
+  //score
+  
+  block1.score();
+  block2.score();
+  block3.score();
+  block4.score();
+  block5.score();
+  block6.score();
+  block7.score();
+  block8.score();
+  block9.score();
+  block10.score();
+  block11.score();
+  block12.score();
+  block13.score();
+  block14.score();
+  block15.score();
+  block16.score();
+  block17.score();
+  block18.score();
+  fill('Green');
+  textSize(60);
+  text('SCORE: ' + score,700,60);
 
   //display
   block1.display();
@@ -107,6 +136,8 @@ function draw() {
   polygon.display();
   ground.display();
 
+  
+
 }
 
 function mouseDragged(){
@@ -131,5 +162,24 @@ function keyPressed(){
     launcher.attach(polygon.body);
     gameState = 'onSling'; 
   }
+
+}
+
+async function getBackgroundImg (){
+  
+  var responce = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata');
+  var responceJSON = await responce.json();
+  var datetime = responceJSON.datetime;
+  var hour = datetime.slice(11,13);
+  if (hour >= 06 && hour <= 19) {
+    bg = 'lightcyan';
+  }
+
+  else{
+    bg = 'darkblue';
+  }
+
+
+  console.log(bg);
 
 }
